@@ -3,12 +3,12 @@
 toDo list
 [x] source js and print to DOM
 [x] bring in SQL
-[] 
-[]
-[]
-[]
-[]
-[]
+[x] use GET to place "tasks" on the DOM
+[x] use POST to add a task
+[x] use DELETE to delete a task
+[]  use PUT to complete a task
+[]  style with CSS
+[]  start hard mode
 []
 []
 []

@@ -16,11 +16,11 @@ $(document).ready(function(){
     // call addTask with the new task
    addTask(taskToAdd);
  }); //end addTask on click
-  // $('#viewKoalas').on('click', '.deleteBtn', function(){
-  //   var koalaId = $(this).data('koalaid');
-  //   console.log($(this));
-  //   deleteKoalas(koalaId);
-  // });
+  $('#taskList').on('click', '.deleteBtn', function(){
+    var taskId = $(this).data('taskid');
+    console.log($(this));
+    deleteTask(taskId);
+  });
   // $('#viewKoalas').on('click', '.transferBtn', function(){
   //   var koalaId = $(this).data('koalaid');
   //   console.log($(this));
@@ -59,6 +59,20 @@ function addTask(newTask){
   }); //end ajax
 }
 
+function deleteTask(taskId){
+    console.log( 'in deleteKoalas' );
+    // ajax call to server to get koalas
+    $.ajax({
+      url: '/toDo/' + taskId,
+      type: 'DELETE',
+      success: function(response){
+        console.log(response);
+        getTasks();
+      } // end success
+    }); //end ajax
+    // display on DOM with buttons that allow edit of each
+  } // end getKoalas
+
 
 function appendToDom(arrayOfTasks) {
   //$('#taskList').empty();
@@ -70,7 +84,7 @@ function appendToDom(arrayOfTasks) {
     $tr.data('nameOfDataAttribute', eachTask);
     $tr.append('<td>' + eachTask.task + '</td>');
     // $tr.append('<td><button class="editBtn">Edit</button></td>');
-    // $tr.append('<td><button class="deleteBtn" data-bookid="' + eachBook.id + '">Delete</button></td>');
+    $tr.append('<td><button class="deleteBtn" data-taskid="' + eachTask.id + '">Delete</button></td>');
     $('#taskList').append($tr);
   }
 }

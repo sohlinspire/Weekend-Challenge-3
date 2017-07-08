@@ -4,6 +4,7 @@ CREATE TABLE tasks(
 );
 
 INSERT INTO tasks (task) VALUES ('Complete To-Do App');
+INSERT INTO tasks (task) VALUES ('Tackle Angular');
 
 
 SELECT * FROM tasks;

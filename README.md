@@ -1,5 +1,19 @@
 # Weekend-Challenge-3
 
+toDo list
+[x] source js and print to DOM
+[x] bring in SQL
+[] 
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+
 Here are the specific components for the challenge:
 
 Create a front end experience that allows a user to create a task.

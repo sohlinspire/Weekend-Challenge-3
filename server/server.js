@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var path = require( 'path' );
+var path = require('path');
 var port = process.env.PORT || 5000;
 var toDoRoute = require('./routes/toDo.js');
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use('/toDo', toDoRoute);
 
@@ -15,6 +17,6 @@ app.get('/*', function(req, res) {
 });
 
 // Start listening for requests on a specific port
-app.listen(port, function(){
+app.listen(port, function() {
   console.log('listening on port', port);
 });

@@ -101,9 +101,9 @@ router.delete('/:id', function(req, res) {
   });
 });
 
-router.put('/', function(req, res) {
+router.put('/:id', function(req, res) {
   console.log(req);
-  var id = req.body.id;
+  var id = req.params.id;
   console.log(id);
   pool.connect(function(errorConnectingToDatabase, db, done) {
     if (errorConnectingToDatabase) {
@@ -112,7 +112,7 @@ router.put('/', function(req, res) {
     } else {
       //we connected to the database!!!
       //Now we're going to GET things from the db
-      var queryText = 'UPDATE tasks SET "task" = $1;';
+      var queryText = 'UPDATE "tasks" SET "complete" = true WHERE id =$1;';
       // errorMakingQuery is a boolean, result is an object
       db.query(queryText, [id], function(errorMakingQuery, result) {
         done();

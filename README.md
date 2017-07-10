@@ -6,7 +6,7 @@ toDo list
 [x] use GET to place "tasks" on the DOM
 [x] use POST to add a task
 [x] use DELETE to delete a task
-[]  use PUT to complete a task
+[x] use PUT to complete a task
 []  style with CSS
 []  start hard mode
 []

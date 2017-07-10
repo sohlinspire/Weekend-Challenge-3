@@ -28,8 +28,8 @@ function addClickHandlers() {
   });
 
   $('#taskList').on('click', '.completeBtn', function(){
-    var selectedTask = $(this).parent().parent().css("text-decoration", "line-through");
-    var updateTask = $(this).data('taskid');
+    //var selectedTask = $(this).parent().parent().css("text-decoration", "line-through");
+    var updateTask = $(this).data('completeid');
     console.log(updateTask);
     completeTask(updateTask);
   });
@@ -78,7 +78,7 @@ function deleteTask(taskId) {
 } // end getKoalas
 
 function completeTask(updateTask) {
-  console.log('updateTask');
+  console.log(updateTask);
   $.ajax({
     type: 'PUT',
     url: '/toDo/' + updateTask,
@@ -95,8 +95,12 @@ function appendToDom(arrayOfTasks) {
   for (var i = 0; i < arrayOfTasks.length; i += 1) {
     var eachTask = arrayOfTasks[i];
     $tr = $('<tr></tr>');
-    $tr.append('<td class="update">' + eachTask.task + '</td>');
-    $tr.append('<td><button class="completeBtn" data-taskid="' + eachTask.id + '">Complete</button></td>');
+    if (eachTask.complete === false){
+    $tr.append('<td>' + eachTask.task + '</td>');
+  } else {
+    $tr.append('<td id="completeSelection">' + eachTask.task + '</td>');
+  }
+    $tr.append('<td><button class="completeBtn" data-completeid="' + eachTask.id + '">Complete</button></td>');
     $tr.append('<td><button class="deleteBtn" data-taskid="' + eachTask.id + '">Delete</button></td>');
     $('#taskList').append($tr);
 

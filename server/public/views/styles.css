@@ -1,7 +1,4 @@
-/*label {
-  font-size: 12px;
-}
 
-#demo:checked + label {
+#completeSelection{
   text-decoration: line-through;
-}*/
+}

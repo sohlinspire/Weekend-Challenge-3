@@ -51,7 +51,7 @@ router.post('/', function(req, res) {
     } else {
       //we connected to the database!!!
       //Now we're going to GET things from the db
-      var queryText = 'INSERT INTO tasks ("task") VALUES ($1);';
+      var queryText = 'INSERT INTO tasks ("task", "complete")' + 'VALUES ($1, false);';
       // errorMakingQuery is a boolean, result is an object
       db.query(queryText, [task.task], function(errorMakingQuery, result) {
         done();

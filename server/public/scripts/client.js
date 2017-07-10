@@ -95,7 +95,7 @@ function appendToDom(arrayOfTasks) {
   for (var i = 0; i < arrayOfTasks.length; i += 1) {
     var eachTask = arrayOfTasks[i];
     $tr = $('<tr></tr>');
-    if (eachTask.complete === false){
+    if (eachTask.complete == "false"){
     $tr.append('<td>' + eachTask.task + '</td>');
   } else {
     $tr.append('<td id="completeSelection">' + eachTask.task + '</td>');
